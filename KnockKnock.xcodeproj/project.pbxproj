@@ -73,16 +73,112 @@
 		CB3A287628840F9500FB567A /* KnockKnock */ = {
 			isa = PBXGroup;
 			children = (
+				CB3A288D28842EAC00FB567A /* Screens */,
+				CB3A289028842ED200FB567A /* Global */,
+			);
+			path = KnockKnock;
+			sourceTree = "<group>";
+		};
+		CB3A288D28842EAC00FB567A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CB3A287B28840F9500FB567A /* ViewController.swift */,
+				CB3A288F28842EB900FB567A /* Sign */,
+				CB3A288E28842EB300FB567A /* Main */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CB3A288E28842EB300FB567A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CB3A288F28842EB900FB567A /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		CB3A289028842ED200FB567A /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				CB3A289128842EEC00FB567A /* Utils */,
+				CB3A289228842EFB00FB567A /* Literal */,
+				CB3A289328842F0500FB567A /* Base */,
+				CB3A289428842F1100FB567A /* Supports */,
+				CB3A289528842F2100FB567A /* Extensions */,
+				CB3A289828842FAD00FB567A /* UIComponent */,
+				CB3A289628842F2900FB567A /* Resource */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		CB3A289128842EEC00FB567A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CB3A289228842EFB00FB567A /* Literal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literal;
+			sourceTree = "<group>";
+		};
+		CB3A289328842F0500FB567A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CB3A289428842F1100FB567A /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				CB3A288528840F9600FB567A /* Info.plist */,
 				CB3A288B288412EF00FB567A /* GoogleService-Info.plist */,
 				CB3A287728840F9500FB567A /* AppDelegate.swift */,
 				CB3A287928840F9500FB567A /* SceneDelegate.swift */,
-				CB3A287B28840F9500FB567A /* ViewController.swift */,
-				CB3A287D28840F9500FB567A /* Main.storyboard */,
-				CB3A288028840F9600FB567A /* Assets.xcassets */,
-				CB3A288228840F9600FB567A /* LaunchScreen.storyboard */,
-				CB3A288528840F9600FB567A /* Info.plist */,
 			);
-			path = KnockKnock;
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		CB3A289528842F2100FB567A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CB3A289628842F2900FB567A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CB3A288028840F9600FB567A /* Assets.xcassets */,
+				CB3A289728842F3A00FB567A /* StoryBoards */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CB3A289728842F3A00FB567A /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				CB3A287D28840F9500FB567A /* Main.storyboard */,
+				CB3A288228840F9600FB567A /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		CB3A289828842FAD00FB567A /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponent;
 			sourceTree = "<group>";
 		};
 		F522CBA1675FFF061BDC2052 /* Pods */ = {
@@ -362,7 +458,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3Y8YH8GWMM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KnockKnock/Info.plist;
+				INFOPLIST_FILE = KnockKnock/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -392,7 +488,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3Y8YH8GWMM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KnockKnock/Info.plist;
+				INFOPLIST_FILE = KnockKnock/Global/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
