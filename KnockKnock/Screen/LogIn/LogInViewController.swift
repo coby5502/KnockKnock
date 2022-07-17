@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class ViewController: UIViewController {
+class LogInViewController: UIViewController {
     
     private let label: UILabel = {
         let label = UILabel()
@@ -42,19 +42,19 @@ class ViewController: UIViewController {
         return passwordField
     }()
     
-    private let button: UIButton = {
+    private let logInbutton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemGreen
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Continue", for: .normal)
         return button
     }()
-    
-    private let signOutButton: UIButton = {
+        
+    private let signUpButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemGreen
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("Log Out", for: .normal)
+        button.setTitle("Sign Up", for: .normal)
         return button
     }()
 
@@ -63,35 +63,11 @@ class ViewController: UIViewController {
         view.addSubview(label)
         view.addSubview(emailField)
         view.addSubview(passwordField)
-        view.addSubview(button)
+        view.addSubview(logInbutton)
+        view.addSubview(signUpButton)
         view.backgroundColor = .systemBlue
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        
-        if FirebaseAuth.Auth.auth().currentUser != nil {
-            label.isHidden = true
-            emailField.isHidden = true
-            passwordField.isHidden = true
-            button.isHidden = true
-            
-            view.addSubview(signOutButton)
-            signOutButton.frame = CGRect(x: 20, y: 150, width: view.frame.size.width-40, height: 52)
-            signOutButton.addTarget(self, action: #selector(logOutTapped), for: .touchUpInside)
-        }
-    }
-    
-    @objc private func logOutTapped() {
-        do {
-            try FirebaseAuth.Auth.auth().signOut()
-            
-            label.isHidden = false
-            emailField.isHidden = false
-            passwordField.isHidden = false
-            button.isHidden = false
-            
-            signOutButton.removeFromSuperview()
-        } catch {
-            print("An error occurred")
-        }
+        logInbutton.addTarget(self, action: #selector(didTapLogInbutton), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -109,20 +85,23 @@ class ViewController: UIViewController {
                                   width: view.frame.size.width-40,
                                   height: 50)
         
-        button.frame = CGRect(x: 20,
+        logInbutton.frame = CGRect(x: 20,
                                   y: passwordField.frame.origin.y+passwordField.frame.size.height+30,
+                                  width: view.frame.size.width-40,
+                                  height: 52)
+        
+        signUpButton.frame = CGRect(x: 20,
+                                  y: logInbutton.frame.origin.y+logInbutton.frame.size.height+30,
                                   width: view.frame.size.width-40,
                                   height: 52)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if FirebaseAuth.Auth.auth().currentUser == nil {
-            emailField.becomeFirstResponder()
-        }
+        emailField.becomeFirstResponder()
     }
     
-    @objc private func didTapButton() {
+    @objc private func didTapLogInbutton() {
         print("Continiue button tapped")
         guard let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty else {
@@ -130,66 +109,31 @@ class ViewController: UIViewController {
             return
         }
         
-        // Get auth instance
-        // attempt sign in
-        // if failure, present alert to create account
-        // if user continues, create account
-        
-        // check sign in on app launch
-        // allow user to sign out with button
-        
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] result, error in
             guard let strongSelf = self else {
                 return
             }
             
             guard error == nil else {
-                // show account creation
-                strongSelf.showCreateAccount(email: email, password: password)
                 return
             }
             
             print("You have signed in")
-            strongSelf.label.isHidden = true
-            strongSelf.emailField.isHidden = true
-            strongSelf.passwordField.isHidden = true
-            strongSelf.button.isHidden = true
-            
-            strongSelf.emailField.resignFirstResponder()
-            strongSelf.passwordField.resignFirstResponder()
+            strongSelf.goHome()
         })
         
     }
     
-    func showCreateAccount(email: String, password: String) {
-        let alert = UIAlertController(title: "Create Account", message: "Would you like to create an account", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: {_ in
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result, error in
-                
-                guard let strongSelf = self else {
-                    return
-                }
-                
-                guard error == nil else {
-                    // show account creation
-                    print("Account creation failed")
-                    return
-                }
-                
-                print("You have signed in")
-                strongSelf.label.isHidden = true
-                strongSelf.emailField.isHidden = true
-                strongSelf.passwordField.isHidden = true
-                strongSelf.button.isHidden = true
-                
-                strongSelf.emailField.resignFirstResponder()
-                strongSelf.passwordField.resignFirstResponder()
-            })
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in}))
-        
-        present(alert, animated: true)
+    @objc private func didTapSignUpButton() {
+        let viewController = SignUpViewController()
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @objc func goHome() {
+        let viewController = MainViewController()
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
     }
 
 }
-

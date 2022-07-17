@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		CB3A287828840F9500FB567A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3A287728840F9500FB567A /* AppDelegate.swift */; };
 		CB3A287A28840F9500FB567A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3A287928840F9500FB567A /* SceneDelegate.swift */; };
-		CB3A287C28840F9500FB567A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3A287B28840F9500FB567A /* ViewController.swift */; };
+		CB3A287C28840F9500FB567A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3A287B28840F9500FB567A /* LogInViewController.swift */; };
 		CB3A288128840F9600FB567A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3A288028840F9600FB567A /* Assets.xcassets */; };
 		CB3A288428840F9600FB567A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3A288228840F9600FB567A /* LaunchScreen.storyboard */; };
 		CB3A288C288412EF00FB567A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB3A288B288412EF00FB567A /* GoogleService-Info.plist */; };
+		CB5219282884408B00C02520 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5219272884408B00C02520 /* MainViewController.swift */; };
+		CB52192B28844AF100C02520 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52192A28844AF100C02520 /* SignUpViewController.swift */; };
 		ECC9E9CB2B95D8BC57A9ACC3 /* Pods_KnockKnock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +23,13 @@
 		CB3A287428840F9500FB567A /* KnockKnock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnockKnock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3A287728840F9500FB567A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB3A287928840F9500FB567A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB3A287B28840F9500FB567A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB3A287B28840F9500FB567A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		CB3A288028840F9600FB567A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB3A288328840F9600FB567A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB3A288528840F9600FB567A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB3A288B288412EF00FB567A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CB5219272884408B00C02520 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CB52192A28844AF100C02520 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.debug.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.debug.xcconfig"; sourceTree = "<group>"; };
 		F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.release.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,55 +75,48 @@
 		CB3A287628840F9500FB567A /* KnockKnock */ = {
 			isa = PBXGroup;
 			children = (
-				CB3A288D28842EAC00FB567A /* Screens */,
+				CB3A288D28842EAC00FB567A /* Screen */,
 				CB3A289028842ED200FB567A /* Global */,
 			);
 			path = KnockKnock;
 			sourceTree = "<group>";
 		};
-		CB3A288D28842EAC00FB567A /* Screens */ = {
+		CB3A288D28842EAC00FB567A /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				CB3A287B28840F9500FB567A /* ViewController.swift */,
-				CB3A288F28842EB900FB567A /* Sign */,
+				CB52192928844AE000C02520 /* SignUp */,
+				CB3A288F28842EB900FB567A /* LogIn */,
 				CB3A288E28842EB300FB567A /* Main */,
 			);
-			path = Screens;
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		CB3A288E28842EB300FB567A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CB5219272884408B00C02520 /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		CB3A288F28842EB900FB567A /* Sign */ = {
+		CB3A288F28842EB900FB567A /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
+				CB3A287B28840F9500FB567A /* LogInViewController.swift */,
 			);
-			path = Sign;
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 		CB3A289028842ED200FB567A /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				CB3A289128842EEC00FB567A /* Utils */,
 				CB3A289228842EFB00FB567A /* Literal */,
 				CB3A289328842F0500FB567A /* Base */,
-				CB3A289428842F1100FB567A /* Supports */,
-				CB3A289528842F2100FB567A /* Extensions */,
+				CB3A289428842F1100FB567A /* Support */,
 				CB3A289828842FAD00FB567A /* UIComponent */,
 				CB3A289628842F2900FB567A /* Resource */,
 			);
 			path = Global;
-			sourceTree = "<group>";
-		};
-		CB3A289128842EEC00FB567A /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		CB3A289228842EFB00FB567A /* Literal */ = {
@@ -136,7 +133,7 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		CB3A289428842F1100FB567A /* Supports */ = {
+		CB3A289428842F1100FB567A /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				CB3A288528840F9600FB567A /* Info.plist */,
@@ -144,14 +141,7 @@
 				CB3A287728840F9500FB567A /* AppDelegate.swift */,
 				CB3A287928840F9500FB567A /* SceneDelegate.swift */,
 			);
-			path = Supports;
-			sourceTree = "<group>";
-		};
-		CB3A289528842F2100FB567A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		CB3A289628842F2900FB567A /* Resource */ = {
@@ -168,6 +158,14 @@
 			children = (
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		CB52192928844AE000C02520 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CB52192A28844AF100C02520 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		F522CBA1675FFF061BDC2052 /* Pods */ = {
@@ -294,9 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB3A287C28840F9500FB567A /* ViewController.swift in Sources */,
+				CB3A287C28840F9500FB567A /* LogInViewController.swift in Sources */,
 				CB3A287828840F9500FB567A /* AppDelegate.swift in Sources */,
 				CB3A287A28840F9500FB567A /* SceneDelegate.swift in Sources */,
+				CB5219282884408B00C02520 /* MainViewController.swift in Sources */,
+				CB52192B28844AF100C02520 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +438,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3Y8YH8GWMM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KnockKnock/Global/Supports/Info.plist;
+				INFOPLIST_FILE = KnockKnock/Global/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -467,7 +467,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3Y8YH8GWMM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KnockKnock/Global/Supports/Info.plist;
+				INFOPLIST_FILE = KnockKnock/Global/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
