@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: BaseViewController {
     
     private let label: UILabel = {
         let label = UILabel()

@@ -8,15 +8,17 @@
 import UIKit
 import FirebaseAuth
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
-    private let label: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Log In"
-        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.text = "Today's Knock"
+        label.font = .systemFont(ofSize: 22, weight: .semibold)
         return label
     }()
+    
+    private let settingButton = SettingButton()
     
     private let signOutButton: UIButton = {
         let button = UIButton()
@@ -28,17 +30,30 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(label)
+        
         view.addSubview(signOutButton)
-        signOutButton.frame = CGRect(x: 20, y: 150, width: view.frame.size.width-40, height: 52)
+        
         signOutButton.addTarget(self, action: #selector(logOutTapped), for: .touchUpInside)
-        view.backgroundColor = .white
+        
+        signOutButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            signOutButton.widthAnchor.constraint(equalToConstant: 100),
+            signOutButton.heightAnchor.constraint(equalToConstant: 100),
+            signOutButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            signOutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        label.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 80)
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+
+        let titleLabel = makeBarButtonItem(with: titleLabel)
+        let settingButton = makeBarButtonItem(with: settingButton)
+
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationItem.leftBarButtonItem = titleLabel
+        navigationItem.rightBarButtonItem = settingButton
     }
     
     @objc private func logOutTapped() {

@@ -15,6 +15,14 @@
 		CB3A288C288412EF00FB567A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB3A288B288412EF00FB567A /* GoogleService-Info.plist */; };
 		CB5219282884408B00C02520 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5219272884408B00C02520 /* MainViewController.swift */; };
 		CB52192B28844AF100C02520 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52192A28844AF100C02520 /* SignUpViewController.swift */; };
+		CB52192D2884704400C02520 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52192C2884704400C02520 /* BaseViewController.swift */; };
+		CB52192F288470BA00C02520 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52192E288470BA00C02520 /* BackButton.swift */; };
+		CB521931288470C700C02520 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB521930288470C700C02520 /* SettingButton.swift */; };
+		CB521933288470E600C02520 /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB521932288470E600C02520 /* ImageLiteral.swift */; };
+		CB5219382884722A00C02520 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5219372884722A00C02520 /* UIColor+Extension.swift */; };
+		CB52193A2884728200C02520 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5219392884728200C02520 /* UIViewController+Extension.swift */; };
+		CB52193C2884770A00C02520 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52193B2884770A00C02520 /* UIFont+Extension.swift */; };
+		CB52193E288477BB00C02520 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52193D288477BB00C02520 /* UILabel+Extension.swift */; };
 		ECC9E9CB2B95D8BC57A9ACC3 /* Pods_KnockKnock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +38,14 @@
 		CB3A288B288412EF00FB567A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB5219272884408B00C02520 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CB52192A28844AF100C02520 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CB52192C2884704400C02520 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CB52192E288470BA00C02520 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		CB521930288470C700C02520 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		CB521932288470E600C02520 /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
+		CB5219372884722A00C02520 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CB5219392884728200C02520 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CB52193B2884770A00C02520 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		CB52193D288477BB00C02520 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.debug.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.debug.xcconfig"; sourceTree = "<group>"; };
 		F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.release.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +126,7 @@
 		CB3A289028842ED200FB567A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				CB5219342884716800C02520 /* Extension */,
 				CB3A289228842EFB00FB567A /* Literal */,
 				CB3A289328842F0500FB567A /* Base */,
 				CB3A289428842F1100FB567A /* Support */,
@@ -122,6 +139,7 @@
 		CB3A289228842EFB00FB567A /* Literal */ = {
 			isa = PBXGroup;
 			children = (
+				CB521932288470E600C02520 /* ImageLiteral.swift */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -129,6 +147,7 @@
 		CB3A289328842F0500FB567A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				CB52192C2884704400C02520 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -156,6 +175,8 @@
 		CB3A289828842FAD00FB567A /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				CB52192E288470BA00C02520 /* BackButton.swift */,
+				CB521930288470C700C02520 /* SettingButton.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -166,6 +187,17 @@
 				CB52192A28844AF100C02520 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		CB5219342884716800C02520 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CB5219372884722A00C02520 /* UIColor+Extension.swift */,
+				CB5219392884728200C02520 /* UIViewController+Extension.swift */,
+				CB52193B2884770A00C02520 /* UIFont+Extension.swift */,
+				CB52193D288477BB00C02520 /* UILabel+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F522CBA1675FFF061BDC2052 /* Pods */ = {
@@ -292,11 +324,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB52193A2884728200C02520 /* UIViewController+Extension.swift in Sources */,
+				CB521931288470C700C02520 /* SettingButton.swift in Sources */,
 				CB3A287C28840F9500FB567A /* LogInViewController.swift in Sources */,
 				CB3A287828840F9500FB567A /* AppDelegate.swift in Sources */,
+				CB5219382884722A00C02520 /* UIColor+Extension.swift in Sources */,
 				CB3A287A28840F9500FB567A /* SceneDelegate.swift in Sources */,
+				CB52193C2884770A00C02520 /* UIFont+Extension.swift in Sources */,
+				CB521933288470E600C02520 /* ImageLiteral.swift in Sources */,
 				CB5219282884408B00C02520 /* MainViewController.swift in Sources */,
 				CB52192B28844AF100C02520 /* SignUpViewController.swift in Sources */,
+				CB52192F288470BA00C02520 /* BackButton.swift in Sources */,
+				CB52193E288477BB00C02520 /* UILabel+Extension.swift in Sources */,
+				CB52192D2884704400C02520 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
