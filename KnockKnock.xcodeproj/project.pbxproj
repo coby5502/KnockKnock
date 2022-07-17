@@ -13,9 +13,12 @@
 		CB3A287F28840F9500FB567A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3A287D28840F9500FB567A /* Main.storyboard */; };
 		CB3A288128840F9600FB567A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3A288028840F9600FB567A /* Assets.xcassets */; };
 		CB3A288428840F9600FB567A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB3A288228840F9600FB567A /* LaunchScreen.storyboard */; };
+		CB3A288C288412EF00FB567A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB3A288B288412EF00FB567A /* GoogleService-Info.plist */; };
+		ECC9E9CB2B95D8BC57A9ACC3 /* Pods_KnockKnock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnockKnock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3A287428840F9500FB567A /* KnockKnock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnockKnock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3A287728840F9500FB567A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB3A287928840F9500FB567A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		CB3A288028840F9600FB567A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB3A288328840F9600FB567A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB3A288528840F9600FB567A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB3A288B288412EF00FB567A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.debug.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.debug.xcconfig"; sourceTree = "<group>"; };
+		F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.release.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC9E9CB2B95D8BC57A9ACC3 /* Pods_KnockKnock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EAC28145A3DD59C3C06E5D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CB3A286B28840F9500FB567A = {
 			isa = PBXGroup;
 			children = (
 				CB3A287628840F9500FB567A /* KnockKnock */,
 				CB3A287528840F9500FB567A /* Products */,
+				F522CBA1675FFF061BDC2052 /* Pods */,
+				0EAC28145A3DD59C3C06E5D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +73,7 @@
 		CB3A287628840F9500FB567A /* KnockKnock */ = {
 			isa = PBXGroup;
 			children = (
+				CB3A288B288412EF00FB567A /* GoogleService-Info.plist */,
 				CB3A287728840F9500FB567A /* AppDelegate.swift */,
 				CB3A287928840F9500FB567A /* SceneDelegate.swift */,
 				CB3A287B28840F9500FB567A /* ViewController.swift */,
@@ -67,6 +85,15 @@
 			path = KnockKnock;
 			sourceTree = "<group>";
 		};
+		F522CBA1675FFF061BDC2052 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */,
+				F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB3A288828840F9600FB567A /* Build configuration list for PBXNativeTarget "KnockKnock" */;
 			buildPhases = (
+				4D03DDECB689D143B96EC590 /* [CP] Check Pods Manifest.lock */,
 				CB3A287028840F9500FB567A /* Sources */,
 				CB3A287128840F9500FB567A /* Frameworks */,
 				CB3A287228840F9500FB567A /* Resources */,
+				825D020774CD2207F2BEA039 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +155,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB3A288428840F9600FB567A /* LaunchScreen.storyboard in Resources */,
+				CB3A288C288412EF00FB567A /* GoogleService-Info.plist in Resources */,
 				CB3A288128840F9600FB567A /* Assets.xcassets in Resources */,
 				CB3A287F28840F9500FB567A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D03DDECB689D143B96EC590 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KnockKnock-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		825D020774CD2207F2BEA039 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KnockKnock/Pods-KnockKnock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KnockKnock/Pods-KnockKnock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KnockKnock/Pods-KnockKnock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB3A287028840F9500FB567A /* Sources */ = {
@@ -282,6 +354,7 @@
 		};
 		CB3A288928840F9600FB567A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -293,6 +366,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -304,12 +378,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		CB3A288A28840F9600FB567A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -321,6 +396,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -332,7 +408,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
