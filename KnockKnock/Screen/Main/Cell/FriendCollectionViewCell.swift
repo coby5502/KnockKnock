@@ -16,6 +16,7 @@ final class FriendCollectionViewCell: BaseCollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .black
         label.textAlignment = .center
+        label.text = "123"
         return label
     }()
     
@@ -44,15 +45,19 @@ final class FriendCollectionViewCell: BaseCollectionViewCell {
     
     override func render() {
         contentView.addSubview(nameLabel)
+        
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
+        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
     
     override func configUI() {
         clipsToBounds = true
-        makeBorderLayer(color: .white.withAlphaComponent(0.5))
+        contentView.backgroundColor = .white
+        contentView.layer.borderWidth = 1
+        contentView.layer.cornerRadius = 10
     }
 }

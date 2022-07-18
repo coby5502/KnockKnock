@@ -9,7 +9,18 @@ import UIKit
 
 final class AlarmCollectionViewCell: BaseCollectionViewCell {
     
-    static let identifier = "AlarmCollectionViewCell"
+    private let data = ["Coby", "Skipp", "Key", "Coby", "Skipp", "Key", "Coby", "Skipp", "Key"]
+    
+    private enum Size {
+        static let collectionHorizontalSpacing: CGFloat = 0.0
+        static let collectionVerticalSpacing: CGFloat = 0.0
+        static let cellWidth: CGFloat = 60
+        static let cellHeight: CGFloat = 30
+        static let collectionInset = UIEdgeInsets(top: collectionVerticalSpacing,
+                                                  left: collectionHorizontalSpacing,
+                                                  bottom: collectionVerticalSpacing,
+                                                  right: collectionHorizontalSpacing)
+    }
     
     // MARK: - property
     
@@ -45,6 +56,26 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
         return imageView
     }()
     
+    private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.sectionInset = Size.collectionInset
+        flowLayout.itemSize = CGSize(width: Size.cellWidth, height: Size.cellHeight)
+        flowLayout.minimumLineSpacing = 10
+        return flowLayout
+    }()
+    
+    private lazy var listCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(cell: FriendCollectionViewCell.self,
+                                forCellWithReuseIdentifier: FriendCollectionViewCell.className)
+        return collectionView
+    }()
+    
     // MARK: - init
     
     override init(frame: CGRect) {
@@ -73,25 +104,32 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
         contentView.addSubview(alarmInfoLabel)
         contentView.addSubview(withLabel)
         contentView.addSubview(alarmImageView)
+        contentView.addSubview(listCollectionView)
         
         alarmTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         alarmInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         withLabel.translatesAutoresizingMaskIntoConstraints = false
         alarmImageView.translatesAutoresizingMaskIntoConstraints = false
+        listCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         alarmTimeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         alarmTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
-        alarmInfoLabel.topAnchor.constraint(equalTo: alarmTimeLabel.bottomAnchor, constant: 12).isActive = true
+        alarmInfoLabel.topAnchor.constraint(equalTo: alarmTimeLabel.bottomAnchor, constant: 8).isActive = true
         alarmInfoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
-        withLabel.topAnchor.constraint(equalTo: alarmInfoLabel.bottomAnchor, constant: 20).isActive = true
+        withLabel.topAnchor.constraint(equalTo: alarmInfoLabel.bottomAnchor, constant: 12).isActive = true
         withLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
-        alarmImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        alarmImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         alarmImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         alarmImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
         alarmImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        
+        listCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        listCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        listCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        listCollectionView.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     override func configUI() {
@@ -100,5 +138,25 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
         contentView.layer.masksToBounds = false
         contentView.layer.cornerRadius = 20
         contentView.makeShadow(color: UIColor.black, opacity: 0.12, offset: CGSize(width: 0, height: 4), radius: 20)
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension AlarmCollectionViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: FriendCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.nameLabel.text = data[indexPath.item]
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension AlarmCollectionViewCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
     }
 }
