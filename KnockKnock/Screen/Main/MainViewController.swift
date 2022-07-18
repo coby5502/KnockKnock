@@ -10,7 +10,18 @@ import FirebaseAuth
 
 class MainViewController: BaseViewController {
     
-    private let data = ["Coby", "Skipp", "Key"]
+    private let data = ["Coby", "Skipp", "Key", "Coby", "Skipp", "Key", "Coby", "Skipp", "Key"]
+    
+    private enum Size {
+        static let collectionHorizontalSpacing: CGFloat = 20.0
+        static let collectionVerticalSpacing: CGFloat = 20.0
+        static let cellWidth: CGFloat = UIScreen.main.bounds.size.width - collectionHorizontalSpacing * 2
+        static let cellHeight: CGFloat = 180
+        static let collectionInset = UIEdgeInsets(top: collectionVerticalSpacing,
+                                                  left: collectionHorizontalSpacing,
+                                                  bottom: collectionVerticalSpacing,
+                                                  right: collectionHorizontalSpacing)
+    }
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -22,28 +33,38 @@ class MainViewController: BaseViewController {
     
     private let settingButton = SettingButton()
     
-    private var alarmTableView = UITableView()
+    private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.sectionInset = Size.collectionInset
+        flowLayout.itemSize = CGSize(width: Size.cellWidth, height: Size.cellHeight)
+        flowLayout.minimumLineSpacing = 20
+        flowLayout.minimumInteritemSpacing = 20
+        return flowLayout
+    }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        alarmTableView.register(AlarmTableViewCell.self, forCellReuseIdentifier: AlarmTableViewCell.cellId)
-        alarmTableView.delegate = self
-        alarmTableView.dataSource = self
-        alarmTableView.separatorStyle = .none
-    }
+    private lazy var listCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(cell: AlarmCollectionViewCell.self,
+                                forCellWithReuseIdentifier: AlarmCollectionViewCell.className)
+        return collectionView
+    }()
 
     override func render() {
-        view.addSubview(alarmTableView)
+        view.addSubview(listCollectionView)
         
         settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
         
-        alarmTableView.translatesAutoresizingMaskIntoConstraints = false
+        listCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        alarmTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        alarmTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-        alarmTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        alarmTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        listCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        listCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        listCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        listCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
     }
     
     override func setupNavigationBar() {
@@ -64,25 +85,21 @@ class MainViewController: BaseViewController {
     }
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// MARK: - UICollectionViewDataSource
+extension MainViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = alarmTableView.dequeueReusableCell(withIdentifier: AlarmTableViewCell.cellId, for: indexPath) as! AlarmTableViewCell
-        // cell.nameLabel.text = data[indexPath.row]
-        cell.selectionStyle = .none
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: AlarmCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+}
+
+// MARK: - UICollectionViewDelegate
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
-    
 }

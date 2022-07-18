@@ -23,14 +23,16 @@
 		CB52193A2884728200C02520 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5219392884728200C02520 /* UIViewController+Extension.swift */; };
 		CB52193C2884770A00C02520 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52193B2884770A00C02520 /* UIFont+Extension.swift */; };
 		CB52193E288477BB00C02520 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52193D288477BB00C02520 /* UILabel+Extension.swift */; };
-		CBC9AEE528853CBD003DC6B3 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE428853CBD003DC6B3 /* AlarmTableViewCell.swift */; };
+		CBC9AEE528853CBD003DC6B3 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE428853CBD003DC6B3 /* AlarmCollectionViewCell.swift */; };
 		CBC9AEE728853CFC003DC6B3 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE628853CFC003DC6B3 /* BaseCollectionViewCell.swift */; };
 		CBC9AEE928853D07003DC6B3 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE828853D07003DC6B3 /* BaseTableViewCell.swift */; };
-		CBC9AEEB28853E46003DC6B3 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEEA28853E46003DC6B3 /* FriendTableViewCell.swift */; };
+		CBC9AEEB28853E46003DC6B3 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEEA28853E46003DC6B3 /* FriendCollectionViewCell.swift */; };
 		CBC9AEEE28853F15003DC6B3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEED28853F15003DC6B3 /* SettingViewController.swift */; };
 		CBC9AEF1288542B8003DC6B3 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF0288542B8003DC6B3 /* MainButton.swift */; };
 		CBC9AEF328854342003DC6B3 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF228854342003DC6B3 /* UIView+Extension.swift */; };
 		CBC9AEF728855106003DC6B3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF628855106003DC6B3 /* Alarm.swift */; };
+		CBC9AEF928859C2A003DC6B3 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF828859C2A003DC6B3 /* UICollectionView+Extension.swift */; };
+		CBC9AEFB28859C4B003DC6B3 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEFA28859C4B003DC6B3 /* NSObject+Extension.swift */; };
 		ECC9E9CB2B95D8BC57A9ACC3 /* Pods_KnockKnock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,14 +56,16 @@
 		CB5219392884728200C02520 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CB52193B2884770A00C02520 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		CB52193D288477BB00C02520 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
-		CBC9AEE428853CBD003DC6B3 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		CBC9AEE428853CBD003DC6B3 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9AEE628853CFC003DC6B3 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9AEE828853D07003DC6B3 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		CBC9AEEA28853E46003DC6B3 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		CBC9AEEA28853E46003DC6B3 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9AEED28853F15003DC6B3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CBC9AEF0288542B8003DC6B3 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		CBC9AEF228854342003DC6B3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CBC9AEF628855106003DC6B3 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		CBC9AEF828859C2A003DC6B3 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		CBC9AEFA28859C4B003DC6B3 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.debug.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.debug.xcconfig"; sourceTree = "<group>"; };
 		F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.release.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +223,8 @@
 				CB52193B2884770A00C02520 /* UIFont+Extension.swift */,
 				CB52193D288477BB00C02520 /* UILabel+Extension.swift */,
 				CBC9AEF228854342003DC6B3 /* UIView+Extension.swift */,
+				CBC9AEF828859C2A003DC6B3 /* UICollectionView+Extension.swift */,
+				CBC9AEFA28859C4B003DC6B3 /* NSObject+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -226,8 +232,8 @@
 		CBC9AEE328853C82003DC6B3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				CBC9AEE428853CBD003DC6B3 /* AlarmTableViewCell.swift */,
-				CBC9AEEA28853E46003DC6B3 /* FriendTableViewCell.swift */,
+				CBC9AEE428853CBD003DC6B3 /* AlarmCollectionViewCell.swift */,
+				CBC9AEEA28853E46003DC6B3 /* FriendCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -382,7 +388,8 @@
 			files = (
 				CBC9AEE928853D07003DC6B3 /* BaseTableViewCell.swift in Sources */,
 				CB52193A2884728200C02520 /* UIViewController+Extension.swift in Sources */,
-				CBC9AEE528853CBD003DC6B3 /* AlarmTableViewCell.swift in Sources */,
+				CBC9AEE528853CBD003DC6B3 /* AlarmCollectionViewCell.swift in Sources */,
+				CBC9AEFB28859C4B003DC6B3 /* NSObject+Extension.swift in Sources */,
 				CB521931288470C700C02520 /* SettingButton.swift in Sources */,
 				CB3A287C28840F9500FB567A /* LogInViewController.swift in Sources */,
 				CBC9AEF728855106003DC6B3 /* Alarm.swift in Sources */,
@@ -392,9 +399,10 @@
 				CB5219382884722A00C02520 /* UIColor+Extension.swift in Sources */,
 				CB3A287A28840F9500FB567A /* SceneDelegate.swift in Sources */,
 				CB52193C2884770A00C02520 /* UIFont+Extension.swift in Sources */,
+				CBC9AEF928859C2A003DC6B3 /* UICollectionView+Extension.swift in Sources */,
 				CB521933288470E600C02520 /* ImageLiteral.swift in Sources */,
 				CB5219282884408B00C02520 /* MainViewController.swift in Sources */,
-				CBC9AEEB28853E46003DC6B3 /* FriendTableViewCell.swift in Sources */,
+				CBC9AEEB28853E46003DC6B3 /* FriendCollectionViewCell.swift in Sources */,
 				CBC9AEF1288542B8003DC6B3 /* MainButton.swift in Sources */,
 				CB52192B28844AF100C02520 /* SignUpViewController.swift in Sources */,
 				CB52192F288470BA00C02520 /* BackButton.swift in Sources */,

@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class AlarmTableViewCell: BaseTableViewCell {
+final class AlarmCollectionViewCell: BaseCollectionViewCell {
     
-    static let cellId = "AlarmCell"
+    static let identifier = "AlarmCollectionViewCell"
     
     // MARK: - property
     
@@ -47,12 +47,25 @@ final class AlarmTableViewCell: BaseTableViewCell {
     
     // MARK: - init
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        super.preferredLayoutAttributesFitting(layoutAttributes)
+        layoutIfNeeded()
+        
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var frame = layoutAttributes.frame
+        
+        frame.size.height = ceil(size.height)
+        layoutAttributes.frame = frame
+        
+        return layoutAttributes
     }
     
     override func render() {
@@ -86,11 +99,6 @@ final class AlarmTableViewCell: BaseTableViewCell {
         contentView.backgroundColor = .white
         contentView.layer.masksToBounds = false
         contentView.layer.cornerRadius = 20
-        contentView.makeShadow(color: UIColor.black, opacity: 0.2, offset: CGSize(width: 0, height: 4), radius: 4)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20))
+        contentView.makeShadow(color: UIColor.black, opacity: 0.12, offset: CGSize(width: 0, height: 4), radius: 20)
     }
 }
