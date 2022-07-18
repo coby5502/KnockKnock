@@ -15,8 +15,20 @@ extension UIColor {
         return UIColor(hex: "#005073")
     }
 
-    static var backgroundBlue: UIColor {
-        return UIColor(hex: "#8BC4E7")
+    static var blue001: UIColor {
+        return UIColor(hex: "#107DAC")
+    }
+    
+    static var blue002: UIColor {
+        return UIColor(hex: "#189AD3")
+    }
+    
+    static var blue003: UIColor {
+        return UIColor(hex: "#1EBBD7")
+    }
+    
+    static var blue004: UIColor {
+        return UIColor(hex: "#71C7EC")
     }
 
     // MARK: - red

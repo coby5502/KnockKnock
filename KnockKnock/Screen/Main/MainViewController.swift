@@ -26,20 +26,21 @@ class MainViewController: BaseViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Today's Knock"
+        label.text = "Today's Meetings"
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         return label
     }()
     
     private let settingButton = SettingButton()
     
+    private let newAlarmButton = NewAlarmButton()
+    
     private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.sectionInset = Size.collectionInset
         flowLayout.itemSize = CGSize(width: Size.cellWidth, height: Size.cellHeight)
-        flowLayout.minimumLineSpacing = 20
-        flowLayout.minimumInteritemSpacing = 20
+        flowLayout.minimumLineSpacing = 10
         return flowLayout
     }()
     
@@ -56,15 +57,23 @@ class MainViewController: BaseViewController {
 
     override func render() {
         view.addSubview(listCollectionView)
+        view.addSubview(newAlarmButton)
         
         settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
+        newAlarmButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
         
         listCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        newAlarmButton.translatesAutoresizingMaskIntoConstraints = false
         
-        listCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        listCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        listCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        listCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         listCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        listCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        listCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        newAlarmButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        newAlarmButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        newAlarmButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        newAlarmButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
     override func setupNavigationBar() {

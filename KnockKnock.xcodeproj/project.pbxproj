@@ -33,6 +33,7 @@
 		CBC9AEF728855106003DC6B3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF628855106003DC6B3 /* Alarm.swift */; };
 		CBC9AEF928859C2A003DC6B3 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF828859C2A003DC6B3 /* UICollectionView+Extension.swift */; };
 		CBC9AEFB28859C4B003DC6B3 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEFA28859C4B003DC6B3 /* NSObject+Extension.swift */; };
+		CBE9A4FE2885B60C0014B8F2 /* NewAlarmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9A4FD2885B60C0014B8F2 /* NewAlarmButton.swift */; };
 		ECC9E9CB2B95D8BC57A9ACC3 /* Pods_KnockKnock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		CBC9AEF628855106003DC6B3 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		CBC9AEF828859C2A003DC6B3 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		CBC9AEFA28859C4B003DC6B3 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		CBE9A4FD2885B60C0014B8F2 /* NewAlarmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlarmButton.swift; sourceTree = "<group>"; };
 		E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.debug.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.debug.xcconfig"; sourceTree = "<group>"; };
 		F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.release.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +134,7 @@
 		CB3A288E28842EB300FB567A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CBC9AEFF2885B5CA003DC6B3 /* UIComponent */,
 				CBC9AEE328853C82003DC6B3 /* Cell */,
 				CB5219272884408B00C02520 /* MainViewController.swift */,
 			);
@@ -260,6 +263,14 @@
 				CBC9AEF628855106003DC6B3 /* Alarm.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CBC9AEFF2885B5CA003DC6B3 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				CBE9A4FD2885B60C0014B8F2 /* NewAlarmButton.swift */,
+			);
+			path = UIComponent;
 			sourceTree = "<group>";
 		};
 		F522CBA1675FFF061BDC2052 /* Pods */ = {
@@ -409,6 +420,7 @@
 				CB52193E288477BB00C02520 /* UILabel+Extension.swift in Sources */,
 				CBC9AEF328854342003DC6B3 /* UIView+Extension.swift in Sources */,
 				CB52192D2884704400C02520 /* BaseViewController.swift in Sources */,
+				CBE9A4FE2885B60C0014B8F2 /* NewAlarmButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
