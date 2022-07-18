@@ -9,6 +9,8 @@ import UIKit
 
 final class AlarmCollectionViewCell: BaseCollectionViewCell {
     
+    private var alarmIsOn: Bool = true
+    
     private let data = ["Coby", "Skipp", "Key", "Coby", "Skipp", "Key", "Coby", "Skipp", "Key"]
     
     private enum Size {
@@ -50,11 +52,7 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
-    let alarmImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = ImageLiterals.alarmOn
-        return imageView
-    }()
+    let alarmButton = UIButton()
     
     private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -100,16 +98,23 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func render() {
+        if alarmIsOn {
+            alarmButton.setImage(ImageLiterals.alarmOn, for: .normal)
+        } else {
+            alarmButton.setImage(ImageLiterals.alarmOff, for: .normal)
+        }
+        alarmButton.addTarget(self, action: #selector(didTapAlarmButton), for: .touchUpInside)
+        
         contentView.addSubview(alarmTimeLabel)
         contentView.addSubview(alarmInfoLabel)
         contentView.addSubview(withLabel)
-        contentView.addSubview(alarmImageView)
+        contentView.addSubview(alarmButton)
         contentView.addSubview(listCollectionView)
         
         alarmTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         alarmInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         withLabel.translatesAutoresizingMaskIntoConstraints = false
-        alarmImageView.translatesAutoresizingMaskIntoConstraints = false
+        alarmButton.translatesAutoresizingMaskIntoConstraints = false
         listCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         alarmTimeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
@@ -121,10 +126,10 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
         withLabel.topAnchor.constraint(equalTo: alarmInfoLabel.bottomAnchor, constant: 12).isActive = true
         withLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
-        alarmImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
-        alarmImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        alarmImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        alarmImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        alarmButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        alarmButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        alarmButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        alarmButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         listCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         listCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
@@ -138,6 +143,16 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
         contentView.layer.masksToBounds = false
         contentView.layer.cornerRadius = 20
         contentView.makeShadow(color: UIColor.black, opacity: 0.12, offset: CGSize(width: 0, height: 4), radius: 20)
+    }
+    
+    @objc private func didTapAlarmButton() {
+        alarmIsOn = !alarmIsOn
+        
+        if alarmIsOn {
+            alarmButton.setImage(ImageLiterals.alarmOn, for: .normal)
+        } else {
+            alarmButton.setImage(ImageLiterals.alarmOff, for: .normal)
+        }
     }
 }
 
