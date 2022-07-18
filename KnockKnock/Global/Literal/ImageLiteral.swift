@@ -13,6 +13,8 @@ enum ImageLiterals {
     
     static var btnBack: UIImage { .load(systemName: "chevron.backward") }
     static var btnSetting: UIImage { .load(systemName: "gearshape") }
+    static var alarmOn: UIImage { .load(systemName: "alarm_on") }
+    static var alarmOff: UIImage { .load(systemName: "alarm_off") }
   
 }
 

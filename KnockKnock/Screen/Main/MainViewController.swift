@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class MainViewController: BaseViewController {
     
+    private let data = ["Coby", "Skipp", "Key"]
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -20,28 +22,27 @@ class MainViewController: BaseViewController {
     
     private let settingButton = SettingButton()
     
-    private let signOutButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .systemGreen
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("Log Out", for: .normal)
-        return button
-    }()
-
+    private var alarmTableView =  UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(signOutButton)
+        alarmTableView.register(AlarmTableViewCell.self, forCellReuseIdentifier: AlarmTableViewCell.cellId)
+        alarmTableView.delegate = self
+        alarmTableView.dataSource = self
+    }
+
+    override func render() {
+        view.addSubview(alarmTableView)
         
-        signOutButton.addTarget(self, action: #selector(logOutTapped), for: .touchUpInside)
+        settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
         
-        signOutButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            signOutButton.widthAnchor.constraint(equalToConstant: 100),
-            signOutButton.heightAnchor.constraint(equalToConstant: 100),
-            signOutButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            signOutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
+        alarmTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        alarmTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
+        alarmTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
+        alarmTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        alarmTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
     }
     
     override func setupNavigationBar() {
@@ -56,12 +57,26 @@ class MainViewController: BaseViewController {
         navigationItem.rightBarButtonItem = settingButton
     }
     
-    @objc private func logOutTapped() {
-        do {
-            try FirebaseAuth.Auth.auth().signOut()
-        } catch {
-            print("An error occurred")
-        }
+    @objc private func didTapSettingButton() {
+        let viewController = SettingViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = alarmTableView.dequeueReusableCell(withIdentifier: AlarmTableViewCell.cellId, for: indexPath) as! AlarmTableViewCell
+        cell.nameLabel.text = data[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+}
