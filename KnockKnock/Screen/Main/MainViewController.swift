@@ -30,6 +30,7 @@ class MainViewController: BaseViewController {
         alarmTableView.register(AlarmTableViewCell.self, forCellReuseIdentifier: AlarmTableViewCell.cellId)
         alarmTableView.delegate = self
         alarmTableView.dataSource = self
+        // alarmTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
 
     override func render() {
@@ -39,10 +40,10 @@ class MainViewController: BaseViewController {
         
         alarmTableView.translatesAutoresizingMaskIntoConstraints = false
         
-        alarmTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
-        alarmTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
-        alarmTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
-        alarmTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
+        alarmTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        alarmTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        alarmTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        alarmTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
     }
     
     override func setupNavigationBar() {
@@ -71,12 +72,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = alarmTableView.dequeueReusableCell(withIdentifier: AlarmTableViewCell.cellId, for: indexPath) as! AlarmTableViewCell
-        cell.nameLabel.text = data[indexPath.row]
+        // cell.nameLabel.text = data[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 180
     }
     
 }

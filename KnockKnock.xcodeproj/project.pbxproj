@@ -30,6 +30,7 @@
 		CBC9AEEE28853F15003DC6B3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEED28853F15003DC6B3 /* SettingViewController.swift */; };
 		CBC9AEF1288542B8003DC6B3 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF0288542B8003DC6B3 /* MainButton.swift */; };
 		CBC9AEF328854342003DC6B3 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF228854342003DC6B3 /* UIView+Extension.swift */; };
+		CBC9AEF728855106003DC6B3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF628855106003DC6B3 /* Alarm.swift */; };
 		ECC9E9CB2B95D8BC57A9ACC3 /* Pods_KnockKnock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		CBC9AEED28853F15003DC6B3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CBC9AEF0288542B8003DC6B3 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		CBC9AEF228854342003DC6B3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CBC9AEF628855106003DC6B3 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.debug.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.debug.xcconfig"; sourceTree = "<group>"; };
 		F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.release.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 		CB3A287628840F9500FB567A /* KnockKnock */ = {
 			isa = PBXGroup;
 			children = (
+				CBC9AEF4288550E9003DC6B3 /* Network */,
 				CB3A288D28842EAC00FB567A /* Screen */,
 				CB3A289028842ED200FB567A /* Global */,
 			);
@@ -237,6 +240,22 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		CBC9AEF4288550E9003DC6B3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CBC9AEF5288550F7003DC6B3 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CBC9AEF5288550F7003DC6B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBC9AEF628855106003DC6B3 /* Alarm.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F522CBA1675FFF061BDC2052 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +385,7 @@
 				CBC9AEE528853CBD003DC6B3 /* AlarmTableViewCell.swift in Sources */,
 				CB521931288470C700C02520 /* SettingButton.swift in Sources */,
 				CB3A287C28840F9500FB567A /* LogInViewController.swift in Sources */,
+				CBC9AEF728855106003DC6B3 /* Alarm.swift in Sources */,
 				CBC9AEEE28853F15003DC6B3 /* SettingViewController.swift in Sources */,
 				CB3A287828840F9500FB567A /* AppDelegate.swift in Sources */,
 				CBC9AEE728853CFC003DC6B3 /* BaseCollectionViewCell.swift in Sources */,
