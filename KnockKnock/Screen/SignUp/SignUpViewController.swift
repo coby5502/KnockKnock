@@ -10,7 +10,7 @@ import FirebaseAuth
 
 class SignUpViewController: BaseViewController {
     
-    private let label: UILabel = {
+    private let signUplabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Sign Up"
@@ -27,6 +27,7 @@ class SignUpViewController: BaseViewController {
         emailField.backgroundColor = .white
         emailField.leftViewMode = .always
         emailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        emailField.layer.cornerRadius = 12
         return emailField
     }()
     
@@ -39,63 +40,50 @@ class SignUpViewController: BaseViewController {
         passwordField.backgroundColor = .white
         passwordField.leftViewMode = .always
         passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        passwordField.layer.cornerRadius = 12
         return passwordField
     }()
     
-    private let button: UIButton = {
+    private let signUpButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = .mainBlue
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Continue", for: .normal)
-        return button
-    }()
-    
-    private let signOutButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .systemGreen
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("Log Out", for: .normal)
+        button.layer.cornerRadius = 12
         return button
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(label)
+    override func render() {
+        view.addSubview(signUplabel)
         view.addSubview(emailField)
         view.addSubview(passwordField)
-        view.addSubview(button)
-        view.backgroundColor = .systemBlue
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        view.addSubview(signUpButton)
         
-        if FirebaseAuth.Auth.auth().currentUser != nil {
-            label.isHidden = true
-            emailField.isHidden = true
-            passwordField.isHidden = true
-            button.isHidden = true
-        }
-    }
-    
-
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
         
-        label.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 80)
+        signUplabel.translatesAutoresizingMaskIntoConstraints = false
+        emailField.translatesAutoresizingMaskIntoConstraints = false
+        passwordField.translatesAutoresizingMaskIntoConstraints = false
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         
-        emailField.frame = CGRect(x: 20,
-                                  y: label.frame.origin.y+label.frame.size.height+10,
-                                  width: view.frame.size.width-40,
-                                  height: 50)
+        signUplabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
+        signUplabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        signUplabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         
-        passwordField.frame = CGRect(x: 20,
-                                  y: emailField.frame.origin.y+emailField.frame.size.height+10,
-                                  width: view.frame.size.width-40,
-                                  height: 50)
+        emailField.topAnchor.constraint(equalTo: signUplabel.bottomAnchor, constant: 50).isActive = true
+        emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        emailField.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        button.frame = CGRect(x: 20,
-                                  y: passwordField.frame.origin.y+passwordField.frame.size.height+30,
-                                  width: view.frame.size.width-40,
-                                  height: 52)
+        passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 10).isActive = true
+        passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        passwordField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        signUpButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 20).isActive = true
+        signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,7 +91,7 @@ class SignUpViewController: BaseViewController {
         emailField.becomeFirstResponder()
     }
     
-    @objc private func didTapButton() {
+    @objc private func didTapSignUpButton() {
         print("Continiue button tapped")
         guard let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty else {
@@ -127,7 +115,7 @@ class SignUpViewController: BaseViewController {
         })
     }
     
-    @objc func goHome() {
+    @objc private func goHome() {
         let viewController = MainViewController()
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true, completion: nil)

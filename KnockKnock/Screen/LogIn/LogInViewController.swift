@@ -8,12 +8,12 @@
 import UIKit
 import FirebaseAuth
 
-class LogInViewController: UIViewController {
+class LogInViewController: BaseViewController {
     
-    private let label: UILabel = {
+    private let loginlabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "Log In"
+        label.text = "Welcome to Knock-Knock"
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         return label
     }()
@@ -27,6 +27,7 @@ class LogInViewController: UIViewController {
         emailField.backgroundColor = .white
         emailField.leftViewMode = .always
         emailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        emailField.layer.cornerRadius = 12
         return emailField
     }()
     
@@ -39,61 +40,72 @@ class LogInViewController: UIViewController {
         passwordField.backgroundColor = .white
         passwordField.leftViewMode = .always
         passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
+        passwordField.layer.cornerRadius = 12
         return passwordField
     }()
     
     private let logInbutton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = .mainBlue
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Log In", for: .normal)
+        button.layer.cornerRadius = 12
         return button
     }()
         
     private let signUpButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = .mainBlue
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Sign Up", for: .normal)
+        button.layer.cornerRadius = 12
         return button
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(label)
+    
+    override func render() {
+        view.addSubview(loginlabel)
         view.addSubview(emailField)
         view.addSubview(passwordField)
         view.addSubview(logInbutton)
         view.addSubview(signUpButton)
-        view.backgroundColor = .systemBlue
+        
         logInbutton.addTarget(self, action: #selector(didTapLogInbutton), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
+        
+        loginlabel.translatesAutoresizingMaskIntoConstraints = false
+        emailField.translatesAutoresizingMaskIntoConstraints = false
+        passwordField.translatesAutoresizingMaskIntoConstraints = false
+        logInbutton.translatesAutoresizingMaskIntoConstraints = false
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        loginlabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
+        loginlabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        loginlabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        emailField.topAnchor.constraint(equalTo: loginlabel.bottomAnchor, constant: 50).isActive = true
+        emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        emailField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 10).isActive = true
+        passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        passwordField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        logInbutton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 20).isActive = true
+        logInbutton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        logInbutton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        logInbutton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        signUpButton.topAnchor.constraint(equalTo: logInbutton.bottomAnchor, constant: 10).isActive = true
+        signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        label.frame = CGRect(x: 0, y: 100, width: view.frame.size.width, height: 80)
-        
-        emailField.frame = CGRect(x: 20,
-                                  y: label.frame.origin.y+label.frame.size.height+10,
-                                  width: view.frame.size.width-40,
-                                  height: 50)
-        
-        passwordField.frame = CGRect(x: 20,
-                                  y: emailField.frame.origin.y+emailField.frame.size.height+10,
-                                  width: view.frame.size.width-40,
-                                  height: 50)
-        
-        logInbutton.frame = CGRect(x: 20,
-                                  y: passwordField.frame.origin.y+passwordField.frame.size.height+30,
-                                  width: view.frame.size.width-40,
-                                  height: 52)
-        
-        signUpButton.frame = CGRect(x: 20,
-                                  y: logInbutton.frame.origin.y+logInbutton.frame.size.height+30,
-                                  width: view.frame.size.width-40,
-                                  height: 52)
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
+        self.navigationItem.leftBarButtonItem = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -129,7 +141,7 @@ class LogInViewController: UIViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    @objc func goHome() {
+    @objc private func goHome() {
         let viewController = MainViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.modalPresentationStyle = .fullScreen
