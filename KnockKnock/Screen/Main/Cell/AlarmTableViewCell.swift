@@ -66,27 +66,31 @@ final class AlarmTableViewCell: BaseTableViewCell {
         withLabel.translatesAutoresizingMaskIntoConstraints = false
         alarmImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        alarmTimeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        alarmTimeLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        alarmTimeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        alarmTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
         alarmInfoLabel.topAnchor.constraint(equalTo: alarmTimeLabel.bottomAnchor, constant: 12).isActive = true
-        alarmInfoLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        alarmInfoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
         withLabel.topAnchor.constraint(equalTo: alarmInfoLabel.bottomAnchor, constant: 20).isActive = true
-        withLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        withLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
-        alarmImageView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
-        alarmImageView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        alarmImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        alarmImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
         alarmImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
         alarmImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
     override func configUI() {
-        clipsToBounds = true
-        
-        backgroundColor = .white
-        layer.borderWidth = 1
-        layer.cornerRadius = 20
-        contentView.makeShadow(color: UIColor.black, opacity: 0.12, offset: CGSize(width: 0, height: 4), radius: 20)
+        contentView.clipsToBounds = true
+        contentView.backgroundColor = .white
+        contentView.layer.masksToBounds = false
+        contentView.layer.cornerRadius = 20
+        contentView.makeShadow(color: UIColor.black, opacity: 0.2, offset: CGSize(width: 0, height: 4), radius: 4)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20))
     }
 }
