@@ -8,6 +8,16 @@
 import UIKit
 
 extension UIColor {
+    
+    // MARK: - blue
+
+    static var mainBlue: UIColor {
+        return UIColor(hex: "#005073")
+    }
+
+    static var backgroundBlue: UIColor {
+        return UIColor(hex: "#8BC4E7")
+    }
 
     // MARK: - red
 
@@ -75,15 +85,6 @@ extension UIColor {
         return UIColor(hex: "#EAB33D")
     }
 
-    // MARK: - blue
-
-    static var subBlue: UIColor {
-        return UIColor(hex: "#3472EB")
-    }
-
-    static var backgroundBlue: UIColor {
-        return UIColor(hex: "#8BC4E7")
-    }
     // MARK: - yellow
     
     static var yellow: UIColor {

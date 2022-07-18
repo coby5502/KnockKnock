@@ -57,6 +57,7 @@ final class FriendCollectionViewCell: BaseCollectionViewCell {
     override func configUI() {
         clipsToBounds = true
         contentView.backgroundColor = .white
+        contentView.layer.borderColor = UIColor.mainBlue.cgColor
         contentView.layer.borderWidth = 1
         contentView.layer.cornerRadius = 10
     }

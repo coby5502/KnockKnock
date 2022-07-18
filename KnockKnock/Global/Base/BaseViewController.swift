@@ -53,7 +53,7 @@ class BaseViewController: UIViewController {
         appearance.titleTextAttributes = [.font: font]
         appearance.largeTitleTextAttributes = [.font: largeFont]
         appearance.shadowColor = .clear
-        appearance.backgroundColor = .grey001
+        appearance.backgroundColor = .white
         
         navigationBar.standardAppearance = appearance
         navigationBar.compactAppearance = appearance

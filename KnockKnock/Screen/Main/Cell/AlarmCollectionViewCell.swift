@@ -123,7 +123,7 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
         alarmInfoLabel.topAnchor.constraint(equalTo: alarmTimeLabel.bottomAnchor, constant: 8).isActive = true
         alarmInfoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
-        withLabel.topAnchor.constraint(equalTo: alarmInfoLabel.bottomAnchor, constant: 12).isActive = true
+        withLabel.topAnchor.constraint(equalTo: alarmInfoLabel.bottomAnchor, constant: 16).isActive = true
         withLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         
         alarmButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
