@@ -10,37 +10,39 @@ import FirebaseAuth
 
 class SettingViewController: BaseViewController {
     
-    private enum Size {
-        static let collectionHorizontalSpacing: CGFloat = 20.0
-        static let collectionVerticalSpacing: CGFloat = 20.0
-        static let cellWidth: CGFloat = UIScreen.main.bounds.size.width - collectionHorizontalSpacing * 2
-        static let cellHeight: CGFloat = 80
-        static let collectionInset = UIEdgeInsets(top: collectionVerticalSpacing,
-                                                  left: collectionHorizontalSpacing,
-                                                  bottom: collectionVerticalSpacing,
-                                                  right: collectionHorizontalSpacing)
-    }
-    
     private let logOutButton: MainButton = {
         let button = MainButton()
         button.label.text = "Log Out"
+        return button
+    }()
+    
+    private let findFriendsButton: MainButton = {
+        let button = MainButton()
+        button.label.text = "Find Friends"
         return button
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        findFriendsButton.addTarget(self, action: #selector(didfindFriendsButtonTapped), for: .touchUpInside)
+        logOutButton.addTarget(self, action: #selector(didlogOutButtonTapped), for: .touchUpInside)
+        
+        view.addSubview(findFriendsButton)
         view.addSubview(logOutButton)
         
-        logOutButton.addTarget(self, action: #selector(logOutTapped), for: .touchUpInside)
-        
+        findFriendsButton.translatesAutoresizingMaskIntoConstraints = false
         logOutButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            logOutButton.widthAnchor.constraint(equalToConstant: Size.cellWidth),
-            logOutButton.heightAnchor.constraint(equalToConstant: Size.cellHeight),
-            logOutButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            logOutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        ])
+        
+        findFriendsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        findFriendsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        findFriendsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        findFriendsButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        logOutButton.topAnchor.constraint(equalTo: findFriendsButton.bottomAnchor, constant: 10).isActive = true
+        logOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        logOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        logOutButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
     override func setupNavigationBar() {
@@ -52,7 +54,10 @@ class SettingViewController: BaseViewController {
         title = "Setting"
     }
     
-    @objc private func logOutTapped() {
+    @objc private func didfindFriendsButtonTapped() {
+    }
+    
+    @objc private func didlogOutButtonTapped() {
         do {
             try FirebaseAuth.Auth.auth().signOut()
         } catch {

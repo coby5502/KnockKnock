@@ -26,6 +26,7 @@
 		CB7C26FA288690950062C432 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C26F9288690950062C432 /* CloseButton.swift */; };
 		CB7C26FF288699260062C432 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C26FE288699260062C432 /* Notification+Extension.swift */; };
 		CB7C270228869FF80062C432 /* SelectMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C270128869FF80062C432 /* SelectMemberViewController.swift */; };
+		CB7C27062886A7570062C432 /* AddFriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C27052886A7570062C432 /* AddFriendCollectionViewCell.swift */; };
 		CBC9AEE528853CBD003DC6B3 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE428853CBD003DC6B3 /* AlarmCollectionViewCell.swift */; };
 		CBC9AEE728853CFC003DC6B3 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE628853CFC003DC6B3 /* BaseCollectionViewCell.swift */; };
 		CBC9AEE928853D07003DC6B3 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE828853D07003DC6B3 /* BaseTableViewCell.swift */; };
@@ -66,6 +67,7 @@
 		CB7C26F9288690950062C432 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		CB7C26FE288699260062C432 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		CB7C270128869FF80062C432 /* SelectMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMemberViewController.swift; sourceTree = "<group>"; };
+		CB7C27052886A7570062C432 /* AddFriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9AEE428853CBD003DC6B3 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9AEE628853CFC003DC6B3 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9AEE828853D07003DC6B3 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -252,9 +254,18 @@
 		CB7C270028869FB30062C432 /* SelectMember */ = {
 			isa = PBXGroup;
 			children = (
+				CB7C27042886A7400062C432 /* Cell */,
 				CB7C270128869FF80062C432 /* SelectMemberViewController.swift */,
 			);
 			path = SelectMember;
+			sourceTree = "<group>";
+		};
+		CB7C27042886A7400062C432 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CB7C27052886A7570062C432 /* AddFriendCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CBC9AEE328853C82003DC6B3 /* Cell */ = {
@@ -474,6 +485,7 @@
 				CB52192F288470BA00C02520 /* BackButton.swift in Sources */,
 				CB52193E288477BB00C02520 /* UILabel+Extension.swift in Sources */,
 				CBC9AEF328854342003DC6B3 /* UIView+Extension.swift in Sources */,
+				CB7C27062886A7570062C432 /* AddFriendCollectionViewCell.swift in Sources */,
 				CB52192D2884704400C02520 /* BaseViewController.swift in Sources */,
 				CBEEFBD0288635FD0000ABD9 /* NewKnockViewController.swift in Sources */,
 				CBE9A4FE2885B60C0014B8F2 /* NewAlarmButton.swift in Sources */,

@@ -105,6 +105,7 @@ class NewKnockViewController: BaseViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.largeTitleDisplayMode = .automatic
+        navigationItem.leftBarButtonItem = nil
         navigationItem.rightBarButtonItem = closeButton
         
         title = "New Knock"
