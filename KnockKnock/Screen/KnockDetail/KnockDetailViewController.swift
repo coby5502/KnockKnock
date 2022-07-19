@@ -97,8 +97,8 @@ class KnockDetailViewController: BaseViewController {
         memberLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         
         memberTableView.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: 20).isActive = true
-        memberTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        memberTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        memberTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        memberTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         memberTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
     }
     

@@ -48,10 +48,8 @@ final class FriendCollectionViewCell: BaseCollectionViewCell {
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
     }
     
     override func configUI() {
