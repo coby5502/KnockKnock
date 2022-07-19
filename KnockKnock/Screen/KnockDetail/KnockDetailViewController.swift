@@ -72,6 +72,12 @@ class KnockDetailViewController: BaseViewController {
         return collectionView
     }()
     
+    private let deleteButton: MainButton = {
+        let button = MainButton()
+        button.label.text = "delete"
+        return button
+    }()
+    
     override func render() {
         if alarmIsOn {
             alarmButton.setImage(ImageLiterals.alarmOn, for: .normal)
@@ -79,18 +85,21 @@ class KnockDetailViewController: BaseViewController {
             alarmButton.setImage(ImageLiterals.alarmOff, for: .normal)
         }
         alarmButton.addTarget(self, action: #selector(didTapAlarmButton), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(didTapDeleteButton), for: .touchUpInside)
         
         view.addSubview(alarmTimeLabel)
         view.addSubview(alarmInfoLabel)
         view.addSubview(alarmButton)
         view.addSubview(memberLabel)
         view.addSubview(listCollectionView)
+        view.addSubview(deleteButton)
         
         alarmTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         alarmInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         alarmButton.translatesAutoresizingMaskIntoConstraints = false
         memberLabel.translatesAutoresizingMaskIntoConstraints = false
         listCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
         
         alarmTimeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         alarmTimeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -109,7 +118,12 @@ class KnockDetailViewController: BaseViewController {
         listCollectionView.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: 20).isActive = true
         listCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         listCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        listCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        listCollectionView.bottomAnchor.constraint(equalTo: deleteButton.topAnchor, constant: -20).isActive = true
+        
+        deleteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        deleteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        deleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        deleteButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
     override func setupNavigationBar() {
@@ -126,6 +140,10 @@ class KnockDetailViewController: BaseViewController {
         } else {
             alarmButton.setImage(ImageLiterals.alarmOff, for: .normal)
         }
+    }
+    
+    @objc private func didTapDeleteButton() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

@@ -62,7 +62,7 @@ class SelectMemberViewController: BaseViewController {
         
         listCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         listCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        listCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        listCollectionView.bottomAnchor.constraint(equalTo: completeButton.topAnchor, constant: -30).isActive = true
         listCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         
         completeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
