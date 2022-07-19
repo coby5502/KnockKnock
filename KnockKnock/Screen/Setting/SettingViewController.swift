@@ -55,11 +55,20 @@ class SettingViewController: BaseViewController {
     }
     
     @objc private func didfindFriendsButtonTapped() {
+        let viewController = FindFriendViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true, completion: nil)
     }
     
     @objc private func didlogOutButtonTapped() {
         do {
             try FirebaseAuth.Auth.auth().signOut()
+            
+            let viewController = LogInViewController()
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true, completion: nil)
         } catch {
             print("An error occurred")
         }
