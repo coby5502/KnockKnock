@@ -1,5 +1,5 @@
 //
-//  NewAlarmView.swift
+//  NewAlarmButton.swift
 //  KnockKnock
 //
 //  Created by COBY_PRO on 2022/07/19.

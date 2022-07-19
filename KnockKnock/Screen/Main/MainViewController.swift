@@ -60,7 +60,7 @@ class MainViewController: BaseViewController {
         view.addSubview(newAlarmButton)
         
         settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
-        newAlarmButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
+        newAlarmButton.addTarget(self, action: #selector(didTapPlusButton), for: .touchUpInside)
         
         listCollectionView.translatesAutoresizingMaskIntoConstraints = false
         newAlarmButton.translatesAutoresizingMaskIntoConstraints = false
@@ -92,6 +92,16 @@ class MainViewController: BaseViewController {
         let viewController = SettingViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    @objc private func didTapPlusButton() {
+        let viewController = NewKnockViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @objc private func didTapKnockCell() {
+        let viewController = KnockDetailViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -109,6 +119,6 @@ extension MainViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        didTapKnockCell()
     }
 }

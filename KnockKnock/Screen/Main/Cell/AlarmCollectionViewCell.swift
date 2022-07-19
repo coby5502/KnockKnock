@@ -128,8 +128,8 @@ final class AlarmCollectionViewCell: BaseCollectionViewCell {
         
         alarmButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         alarmButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        alarmButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        alarmButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        alarmButton.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        alarmButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
         listCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         listCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true

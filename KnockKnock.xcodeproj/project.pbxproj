@@ -34,6 +34,9 @@
 		CBC9AEF928859C2A003DC6B3 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEF828859C2A003DC6B3 /* UICollectionView+Extension.swift */; };
 		CBC9AEFB28859C4B003DC6B3 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEFA28859C4B003DC6B3 /* NSObject+Extension.swift */; };
 		CBE9A4FE2885B60C0014B8F2 /* NewAlarmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9A4FD2885B60C0014B8F2 /* NewAlarmButton.swift */; };
+		CBEEFBCD288631E10000ABD9 /* KnockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEFBCC288631E10000ABD9 /* KnockDetailViewController.swift */; };
+		CBEEFBD0288635FD0000ABD9 /* NewKnockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEFBCF288635FD0000ABD9 /* NewKnockViewController.swift */; };
+		CBEEFBD3288638340000ABD9 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEFBD2288638340000ABD9 /* MemberTableViewCell.swift */; };
 		ECC9E9CB2B95D8BC57A9ACC3 /* Pods_KnockKnock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DFBB473B015A54838FA48F /* Pods_KnockKnock.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,9 @@
 		CBC9AEF828859C2A003DC6B3 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		CBC9AEFA28859C4B003DC6B3 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		CBE9A4FD2885B60C0014B8F2 /* NewAlarmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlarmButton.swift; sourceTree = "<group>"; };
+		CBEEFBCC288631E10000ABD9 /* KnockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnockDetailViewController.swift; sourceTree = "<group>"; };
+		CBEEFBCF288635FD0000ABD9 /* NewKnockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewKnockViewController.swift; sourceTree = "<group>"; };
+		CBEEFBD2288638340000ABD9 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 		E9BB8D68A0B82F208FEB338B /* Pods-KnockKnock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.debug.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.debug.xcconfig"; sourceTree = "<group>"; };
 		F12D1DFFDEE64B6A7D6C062C /* Pods-KnockKnock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnockKnock.release.xcconfig"; path = "Target Support Files/Pods-KnockKnock/Pods-KnockKnock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,9 +129,11 @@
 		CB3A288D28842EAC00FB567A /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CBEEFBCE288635DA0000ABD9 /* NewKnock */,
 				CB3A288F28842EB900FB567A /* LogIn */,
 				CB52192928844AE000C02520 /* SignUp */,
 				CB3A288E28842EB300FB567A /* Main */,
+				CBEEFBCB288631920000ABD9 /* KnockDetail */,
 				CBC9AEEC28853F05003DC6B3 /* Setting */,
 			);
 			path = Screen;
@@ -273,6 +281,31 @@
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
+		CBEEFBCB288631920000ABD9 /* KnockDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEFBD1288638220000ABD9 /* Cell */,
+				CBEEFBCC288631E10000ABD9 /* KnockDetailViewController.swift */,
+			);
+			path = KnockDetail;
+			sourceTree = "<group>";
+		};
+		CBEEFBCE288635DA0000ABD9 /* NewKnock */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEFBCF288635FD0000ABD9 /* NewKnockViewController.swift */,
+			);
+			path = NewKnock;
+			sourceTree = "<group>";
+		};
+		CBEEFBD1288638220000ABD9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEFBD2288638340000ABD9 /* MemberTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		F522CBA1675FFF061BDC2052 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,9 +430,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEEFBCD288631E10000ABD9 /* KnockDetailViewController.swift in Sources */,
 				CBC9AEE928853D07003DC6B3 /* BaseTableViewCell.swift in Sources */,
 				CB52193A2884728200C02520 /* UIViewController+Extension.swift in Sources */,
 				CBC9AEE528853CBD003DC6B3 /* AlarmCollectionViewCell.swift in Sources */,
+				CBEEFBD3288638340000ABD9 /* MemberTableViewCell.swift in Sources */,
 				CBC9AEFB28859C4B003DC6B3 /* NSObject+Extension.swift in Sources */,
 				CB521931288470C700C02520 /* SettingButton.swift in Sources */,
 				CB3A287C28840F9500FB567A /* LogInViewController.swift in Sources */,
@@ -420,6 +455,7 @@
 				CB52193E288477BB00C02520 /* UILabel+Extension.swift in Sources */,
 				CBC9AEF328854342003DC6B3 /* UIView+Extension.swift in Sources */,
 				CB52192D2884704400C02520 /* BaseViewController.swift in Sources */,
+				CBEEFBD0288635FD0000ABD9 /* NewKnockViewController.swift in Sources */,
 				CBE9A4FE2885B60C0014B8F2 /* NewAlarmButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

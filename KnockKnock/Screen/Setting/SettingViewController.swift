@@ -10,26 +10,36 @@ import FirebaseAuth
 
 class SettingViewController: BaseViewController {
     
-    private let signOutButton: MainButton = {
+    private enum Size {
+        static let collectionHorizontalSpacing: CGFloat = 20.0
+        static let collectionVerticalSpacing: CGFloat = 20.0
+        static let cellWidth: CGFloat = UIScreen.main.bounds.size.width - collectionHorizontalSpacing * 2
+        static let cellHeight: CGFloat = 80
+        static let collectionInset = UIEdgeInsets(top: collectionVerticalSpacing,
+                                                  left: collectionHorizontalSpacing,
+                                                  bottom: collectionVerticalSpacing,
+                                                  right: collectionHorizontalSpacing)
+    }
+    
+    private let logOutButton: MainButton = {
         let button = MainButton()
-        button.title = "Log Out"
-        button.isDisabled = false
+        button.label.text = "Log Out"
         return button
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(signOutButton)
+        view.addSubview(logOutButton)
         
-        signOutButton.addTarget(self, action: #selector(logOutTapped), for: .touchUpInside)
+        logOutButton.addTarget(self, action: #selector(logOutTapped), for: .touchUpInside)
         
-        signOutButton.translatesAutoresizingMaskIntoConstraints = false
+        logOutButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            signOutButton.widthAnchor.constraint(equalToConstant: 100),
-            signOutButton.heightAnchor.constraint(equalToConstant: 100),
-            signOutButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            signOutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            logOutButton.widthAnchor.constraint(equalToConstant: Size.cellWidth),
+            logOutButton.heightAnchor.constraint(equalToConstant: Size.cellHeight),
+            logOutButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            logOutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
     }
     
