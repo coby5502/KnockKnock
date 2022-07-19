@@ -95,7 +95,9 @@ class MainViewController: BaseViewController {
     
     @objc private func didTapPlusButton() {
         let viewController = NewKnockViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true, completion: nil)
     }
     
     @objc private func didTapKnockCell() {

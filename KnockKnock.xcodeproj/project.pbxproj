@@ -23,6 +23,9 @@
 		CB52193A2884728200C02520 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5219392884728200C02520 /* UIViewController+Extension.swift */; };
 		CB52193C2884770A00C02520 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52193B2884770A00C02520 /* UIFont+Extension.swift */; };
 		CB52193E288477BB00C02520 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB52193D288477BB00C02520 /* UILabel+Extension.swift */; };
+		CB7C26FA288690950062C432 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C26F9288690950062C432 /* CloseButton.swift */; };
+		CB7C26FF288699260062C432 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C26FE288699260062C432 /* Notification+Extension.swift */; };
+		CB7C270228869FF80062C432 /* SelectMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C270128869FF80062C432 /* SelectMemberViewController.swift */; };
 		CBC9AEE528853CBD003DC6B3 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE428853CBD003DC6B3 /* AlarmCollectionViewCell.swift */; };
 		CBC9AEE728853CFC003DC6B3 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE628853CFC003DC6B3 /* BaseCollectionViewCell.swift */; };
 		CBC9AEE928853D07003DC6B3 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9AEE828853D07003DC6B3 /* BaseTableViewCell.swift */; };
@@ -60,6 +63,9 @@
 		CB5219392884728200C02520 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CB52193B2884770A00C02520 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		CB52193D288477BB00C02520 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		CB7C26F9288690950062C432 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		CB7C26FE288699260062C432 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		CB7C270128869FF80062C432 /* SelectMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMemberViewController.swift; sourceTree = "<group>"; };
 		CBC9AEE428853CBD003DC6B3 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9AEE628853CFC003DC6B3 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9AEE828853D07003DC6B3 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -129,11 +135,12 @@
 		CB3A288D28842EAC00FB567A /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				CBEEFBCE288635DA0000ABD9 /* NewKnock */,
 				CB3A288F28842EB900FB567A /* LogIn */,
 				CB52192928844AE000C02520 /* SignUp */,
 				CB3A288E28842EB300FB567A /* Main */,
 				CBEEFBCB288631920000ABD9 /* KnockDetail */,
+				CBEEFBCE288635DA0000ABD9 /* NewKnock */,
+				CB7C270028869FB30062C432 /* SelectMember */,
 				CBC9AEEC28853F05003DC6B3 /* Setting */,
 			);
 			path = Screen;
@@ -212,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				CB52192E288470BA00C02520 /* BackButton.swift */,
+				CB7C26F9288690950062C432 /* CloseButton.swift */,
 				CB521930288470C700C02520 /* SettingButton.swift */,
 				CBC9AEF0288542B8003DC6B3 /* MainButton.swift */,
 			);
@@ -230,14 +238,23 @@
 			isa = PBXGroup;
 			children = (
 				CB5219372884722A00C02520 /* UIColor+Extension.swift */,
-				CB5219392884728200C02520 /* UIViewController+Extension.swift */,
 				CB52193B2884770A00C02520 /* UIFont+Extension.swift */,
-				CB52193D288477BB00C02520 /* UILabel+Extension.swift */,
-				CBC9AEF228854342003DC6B3 /* UIView+Extension.swift */,
+				CB5219392884728200C02520 /* UIViewController+Extension.swift */,
 				CBC9AEF828859C2A003DC6B3 /* UICollectionView+Extension.swift */,
 				CBC9AEFA28859C4B003DC6B3 /* NSObject+Extension.swift */,
+				CBC9AEF228854342003DC6B3 /* UIView+Extension.swift */,
+				CB52193D288477BB00C02520 /* UILabel+Extension.swift */,
+				CB7C26FE288699260062C432 /* Notification+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CB7C270028869FB30062C432 /* SelectMember */ = {
+			isa = PBXGroup;
+			children = (
+				CB7C270128869FF80062C432 /* SelectMemberViewController.swift */,
+			);
+			path = SelectMember;
 			sourceTree = "<group>";
 		};
 		CBC9AEE328853C82003DC6B3 /* Cell */ = {
@@ -436,7 +453,9 @@
 				CBC9AEE528853CBD003DC6B3 /* AlarmCollectionViewCell.swift in Sources */,
 				CBEEFBD3288638340000ABD9 /* MemberTableViewCell.swift in Sources */,
 				CBC9AEFB28859C4B003DC6B3 /* NSObject+Extension.swift in Sources */,
+				CB7C270228869FF80062C432 /* SelectMemberViewController.swift in Sources */,
 				CB521931288470C700C02520 /* SettingButton.swift in Sources */,
+				CB7C26FF288699260062C432 /* Notification+Extension.swift in Sources */,
 				CB3A287C28840F9500FB567A /* LogInViewController.swift in Sources */,
 				CBC9AEF728855106003DC6B3 /* Alarm.swift in Sources */,
 				CBC9AEEE28853F15003DC6B3 /* SettingViewController.swift in Sources */,
@@ -448,6 +467,7 @@
 				CBC9AEF928859C2A003DC6B3 /* UICollectionView+Extension.swift in Sources */,
 				CB521933288470E600C02520 /* ImageLiteral.swift in Sources */,
 				CB5219282884408B00C02520 /* MainViewController.swift in Sources */,
+				CB7C26FA288690950062C432 /* CloseButton.swift in Sources */,
 				CBC9AEEB28853E46003DC6B3 /* FriendCollectionViewCell.swift in Sources */,
 				CBC9AEF1288542B8003DC6B3 /* MainButton.swift in Sources */,
 				CB52192B28844AF100C02520 /* SignUpViewController.swift in Sources */,
