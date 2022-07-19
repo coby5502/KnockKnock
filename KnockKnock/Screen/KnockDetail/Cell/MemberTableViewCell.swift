@@ -1,5 +1,5 @@
 //
-//  MemberTableViewCell.swift
+//  MemberCollectionViewCell.swift
 //  KnockKnock
 //
 //  Created by COBY_PRO on 2022/07/19.
@@ -7,9 +7,7 @@
 
 import UIKit
 
-final class MemberTableViewCell: BaseTableViewCell {
-    
-    static let cellId = "MemberTableViewCell"
+final class MemberCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - property
     
@@ -32,12 +30,25 @@ final class MemberTableViewCell: BaseTableViewCell {
     
     // MARK: - init
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        super.preferredLayoutAttributesFitting(layoutAttributes)
+        layoutIfNeeded()
+        
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var frame = layoutAttributes.frame
+        
+        frame.size.height = ceil(size.height)
+        layoutAttributes.frame = frame
+        
+        return layoutAttributes
     }
     
     override func render() {

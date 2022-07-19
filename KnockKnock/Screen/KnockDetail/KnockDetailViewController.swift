@@ -15,10 +15,10 @@ class KnockDetailViewController: BaseViewController {
     private let data = ["Coby", "Skipp", "Key", "Coby", "Skipp", "Key", "Coby", "Skipp", "Key"]
     
     private enum Size {
-        static let collectionHorizontalSpacing: CGFloat = 20.0
-        static let collectionVerticalSpacing: CGFloat = 20.0
+        static let collectionHorizontalSpacing: CGFloat = 0
+        static let collectionVerticalSpacing: CGFloat = 0
         static let cellWidth: CGFloat = UIScreen.main.bounds.size.width - collectionHorizontalSpacing * 2
-        static let cellHeight: CGFloat = 180
+        static let cellHeight: CGFloat = 100
         static let collectionInset = UIEdgeInsets(top: collectionVerticalSpacing,
                                                   left: collectionHorizontalSpacing,
                                                   bottom: collectionVerticalSpacing,
@@ -52,16 +52,26 @@ class KnockDetailViewController: BaseViewController {
         return label
     }()
     
-    private var memberTableView = UITableView()
+    private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.sectionInset = Size.collectionInset
+        flowLayout.itemSize = CGSize(width: Size.cellWidth, height: Size.cellHeight)
+        flowLayout.minimumLineSpacing = 0
+        return flowLayout
+    }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        memberTableView.register(MemberTableViewCell.self, forCellReuseIdentifier: MemberTableViewCell.cellId)
-        memberTableView.delegate = self
-        memberTableView.dataSource = self
-    }
-
+    private lazy var listCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(cell: MemberCollectionViewCell.self,
+                                forCellWithReuseIdentifier: MemberCollectionViewCell.className)
+        return collectionView
+    }()
+    
     override func render() {
         if alarmIsOn {
             alarmButton.setImage(ImageLiterals.alarmOn, for: .normal)
@@ -74,13 +84,13 @@ class KnockDetailViewController: BaseViewController {
         view.addSubview(alarmInfoLabel)
         view.addSubview(alarmButton)
         view.addSubview(memberLabel)
-        view.addSubview(memberTableView)
+        view.addSubview(listCollectionView)
         
         alarmTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         alarmInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         alarmButton.translatesAutoresizingMaskIntoConstraints = false
         memberLabel.translatesAutoresizingMaskIntoConstraints = false
-        memberTableView.translatesAutoresizingMaskIntoConstraints = false
+        listCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         alarmTimeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         alarmTimeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -96,10 +106,10 @@ class KnockDetailViewController: BaseViewController {
         memberLabel.topAnchor.constraint(equalTo: alarmInfoLabel.bottomAnchor, constant: 40).isActive = true
         memberLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         
-        memberTableView.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: 20).isActive = true
-        memberTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        memberTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        memberTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        listCollectionView.topAnchor.constraint(equalTo: memberLabel.bottomAnchor, constant: 20).isActive = true
+        listCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        listCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        listCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
     }
     
     override func setupNavigationBar() {
@@ -119,24 +129,22 @@ class KnockDetailViewController: BaseViewController {
     }
 }
 
-extension KnockDetailViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+// MARK: - UICollectionViewDataSource
+extension KnockDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = memberTableView.dequeueReusableCell(withIdentifier: MemberTableViewCell.cellId, for: indexPath) as! MemberTableViewCell
-        cell.nameLabel.text = data[indexPath.row]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: MemberCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.nameLabel.text = data[indexPath.item]
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+}
+
+// MARK: - UICollectionViewDelegate
+extension KnockDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
-    
 }
